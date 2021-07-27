@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoItem } from 'src/app/models/todo-item';
 
 @Component({
@@ -20,8 +20,11 @@ export class TodoFormulaireComponent implements OnChanges{
 
   constructor(private formBuilder: FormBuilder){
     this.todoForm = formBuilder.group({
-      titre: new FormControl(""),
-      description: new FormControl(""),
+      titre: new FormControl("", Validators.compose([
+        Validators.required, 
+        Validators.minLength(10), 
+        Validators.maxLength(30)])),
+      description: new FormControl("", Validators.required),
       date: new FormControl(Date.now())
     });
   }
@@ -33,8 +36,15 @@ export class TodoFormulaireComponent implements OnChanges{
   }
 
   onSubmit(){
-    this.onFinish.emit(this.todoForm.value);
-    this.todoForm.reset();
+    if (this.todoForm.valid){
+      this.onFinish.emit(this.todoForm.value);
+      this.todoForm.reset();
+    } else {
+      if (this.todoForm.get("titre")?.errors)
+        alert(JSON.stringify(this.todoForm.get("titre")?.errors))
+      else if (this.todoForm.get("description")?.errors)
+        alert(JSON.stringify(this.todoForm.get("description")?.errors))
+    }
   }
 
 }
