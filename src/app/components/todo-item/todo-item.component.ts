@@ -9,7 +9,10 @@ import { BasicTodoItem, TodoItem } from 'src/app/models/todo-item';
 export class TodoItemComponent implements OnInit {
 
   @Input() todoItem: TodoItem = new BasicTodoItem();
+  @Input() isOpen = true;
   @Output() onDelete = new EventEmitter<TodoItem>();
+  @Output() onEdit = new EventEmitter();
+
 
   constructor() { }
 
@@ -18,6 +21,15 @@ export class TodoItemComponent implements OnInit {
 
   onDeleteCallback(){
     this.onDelete.emit();
+  }
+
+  onEditCallback(){
+    this.onEdit.emit();
+  }
+
+  onCloseCallback(){
+    this.isOpen = !this.isOpen;
+    console.log(this.isOpen)
   }
 
 }

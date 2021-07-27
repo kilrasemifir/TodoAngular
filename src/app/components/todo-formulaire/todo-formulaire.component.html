@@ -1,13 +1,14 @@
 <form [formGroup]="todoForm" (ngSubmit)="onSubmit()" class="todo-form">
     <label for="titre">
-      Titre: <input formControlName="titre">
+      <h3>Titre:</h3>
+      <input formControlName="titre">
     </label>
     <label for="description">
-      Description:
+      <h3>Description:</h3>
       <textarea formControlName="description" cols="30" rows="10"></textarea>
     </label>
     <label for="date">
-      Date:
+      <h3>Date:</h3> 
       <input type="date" formControlName="date">
     </label>
     <button type="submit">Submit</button>

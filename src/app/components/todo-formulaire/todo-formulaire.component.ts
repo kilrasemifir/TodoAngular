@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { TodoItem } from 'src/app/models/todo-item';
 
@@ -7,8 +7,9 @@ import { TodoItem } from 'src/app/models/todo-item';
   templateUrl: './todo-formulaire.component.html',
   styleUrls: ['./todo-formulaire.component.css']
 })
-export class TodoFormulaireComponent{
+export class TodoFormulaireComponent implements OnChanges{
 
+  @Input() defaultValue?: TodoItem;
   /**
    * Evenement appelé a la fin du formulaire.
    * La valeur est un @see TodoItem
@@ -23,6 +24,12 @@ export class TodoFormulaireComponent{
       description: new FormControl(""),
       date: new FormControl(Date.now())
     });
+  }
+
+  ngOnChanges(){
+    if (this.defaultValue){
+      this.todoForm.setValue(this.defaultValue);
+    }
   }
 
   onSubmit(){

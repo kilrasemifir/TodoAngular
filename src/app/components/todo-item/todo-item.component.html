@@ -1,8 +1,24 @@
 <div class="todo-item-container">
-    <div>
-        <h2>{{todoItem.titre}}</h2>
-        <p>{{todoItem.description}}</p>
+    <div class="todo-item-header">
+        <span class="inline">
+            <h2>{{todoItem.titre}}</h2>
+            <ng-container *ngIf="!isOpen">
+                <div class="todo-item-footer">
+                    <p>Date d'échéance: {{todoItem.date | date}}</p>
+                </div>
+            </ng-container>
+        </span>
+        <div>
+            <button class="close-button" (click)="onCloseCallback()">-</button>
+            <button class="edit-button" (click)="onEditCallback()">E</button>
+            <button class="delete-button" (click)="onDeleteCallback()">X</button>
+        </div>
     </div>
-    <p>{{todoItem.date | date}}</p>
-    <button (click)="onDeleteCallback()">Supprimer</button>
+    <ng-container *ngIf="isOpen">
+        <p>{{todoItem.description}}</p>
+        <div class="todo-item-footer">
+            <p>Date d'échéance: {{todoItem.date | date}}</p>
+        </div>
+    </ng-container>
+    
 </div>

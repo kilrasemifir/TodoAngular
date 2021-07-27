@@ -4,5 +4,43 @@
     margin: 5px;
     border-radius: 5px;
     display: flex;
-    justify-content: space-between;  
+    flex-direction: column;
+}
+
+.todo-item-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-item-footer {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    font-size: 0.7em;
+    color: lightslategray;
+}
+
+button {
+    border-radius: 1em;
+    border: none;
+    height: 1.5em;
+    width: 1.5em;
+}
+
+button.delete-button {
+    background-color: red;
+}
+
+button.edit-button {
+    background-color: green;
+}
+
+button.close-button {
+    background-color: lightblue;
+}
+
+.inline {
+    display: flex;
+    justify-content: row;
+    align-items: center;
 }
