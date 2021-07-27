@@ -13,4 +13,8 @@ export class AppComponent {
   onAjouter(todoItem: TodoItem){
     this.todoListe.push(todoItem);
   }
+
+  onDelete(item: TodoItem){
+    this.todoListe = this.todoListe.filter(val=>val!=item);
+  }
 }

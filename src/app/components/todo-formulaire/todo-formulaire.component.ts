@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { TodoItem } from 'src/app/models/todo-item';
 
 @Component({
   selector: 'app-todo-formulaire',
@@ -8,7 +9,11 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 })
 export class TodoFormulaireComponent{
 
-  @Output() ajouter = new EventEmitter()
+  /**
+   * Evenement appelé a la fin du formulaire.
+   * La valeur est un @see TodoItem
+   */
+  @Output() onFinish = new EventEmitter<TodoItem>()
 
   public todoForm: FormGroup;
 
@@ -21,7 +26,7 @@ export class TodoFormulaireComponent{
   }
 
   onSubmit(){
-    this.ajouter.emit(this.todoForm.value);
+    this.onFinish.emit(this.todoForm.value);
     this.todoForm.reset();
   }
 

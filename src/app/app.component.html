@@ -1,6 +1,6 @@
 <div class="main-container">
   <div class="todo-liste-container">
-    <app-todo-item *ngFor="let item of todoListe" [todoItem]="item"></app-todo-item>
+    <app-todo-item *ngFor="let item of todoListe" [todoItem]="item" (onDelete)="onDelete(item)"></app-todo-item>
   </div>
-  <app-todo-formulaire (ajouter)="onAjouter($event)"></app-todo-formulaire>
+  <app-todo-formulaire (onFinish)="onAjouter($event)"></app-todo-formulaire>
 </div>
