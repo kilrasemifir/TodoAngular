@@ -1,0 +1,14 @@
+.main-container {
+    display: flex;
+}
+
+.todo-liste-container {
+    min-width: 40vw;
+    height: 100%;
+    background-color: aqua;
+}
+
+.todo-form {
+    display: flex;
+    flex-direction: column;
+}

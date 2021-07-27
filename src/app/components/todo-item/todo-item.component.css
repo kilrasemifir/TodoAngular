@@ -1,0 +1,8 @@
+.todo-item-container {
+    padding: 5px;
+    background-color: aliceblue;
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;  
+}
