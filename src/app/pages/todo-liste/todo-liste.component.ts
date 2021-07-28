@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BasicTodoItem, TodoItem } from 'src/app/models/todo-item';
+import { TodoHTTPService } from 'src/app/services/todo-http.service';
 import { TodoStoreService } from 'src/app/services/todo-store.service';
 
 @Component({
@@ -15,30 +16,26 @@ export class TodoListeComponent implements OnInit {
   public editItemIndex: number = -1;
 
   constructor(
-    public todoStore: TodoStoreService,
-    private router: Router) { }
-
-  onAjouter(todoItem: TodoItem) {
-    if (this.editItemIndex == -1)
-      this.todoStore.add(todoItem);
-    else {
-      this.todoStore.setItem(this.editItemIndex, this.editItem || new BasicTodoItem());
-      this.editItem = undefined;
-      this.editItemIndex = -1;
-    }
-  }
+    private todoHttpService: TodoHTTPService,
+    private router: Router
+  ) { }
 
   onDelete(item: TodoItem) {
-    this.todoStore.remove(item)
-    this.todoListe = this.todoStore.getAll();
+    this.todoHttpService.delete(item).subscribe(()=>{
+      this.todoListe = this.todoListe.filter(val=>val.id != item.id);
+    });
+    // this.todoStore.remove(item)
+    // this.todoListe = this.todoStore.getAll();
   }
 
-  onEdit(item: TodoItem, index: number) {
-    this.router.navigate([`todo-form/${index}`])
+  onEdit(item: TodoItem) {
+    this.router.navigate([`todo-form/${item.id}`])
   }
 
   ngOnInit(): void {
-    this.todoListe = this.todoStore.getAll();
+    this.todoHttpService.findAll().subscribe(result => {
+      this.todoListe = result;
+    });
   }
 
 }
