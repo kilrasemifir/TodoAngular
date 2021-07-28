@@ -7,13 +7,17 @@ import { AppComponent } from './app.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { TodoFormulaireComponent } from './components/todo-formulaire/todo-formulaire.component';
 import { HomeComponent } from './pages/home/home.component';
+import { TodoListeComponent } from './pages/todo-liste/todo-liste.component';
+import { NotFound404Component } from './pages/not-found404/not-found404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoItemComponent,
     TodoFormulaireComponent,
-    HomeComponent
+    HomeComponent,
+    TodoListeComponent,
+    NotFound404Component
   ],
   imports: [
     BrowserModule,

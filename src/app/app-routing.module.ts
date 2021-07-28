@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { NotFound404Component } from './pages/not-found404/not-found404.component';
+import { TodoListeComponent } from './pages/todo-liste/todo-liste.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:"todo-liste", component:TodoListeComponent},
+  {path:"", component:HomeComponent},
+  {path:"404", component:NotFound404Component},
+  {path:"**", redirectTo:"404"},
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
