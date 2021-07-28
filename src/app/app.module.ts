@@ -9,6 +9,7 @@ import { TodoFormulaireComponent } from './components/todo-formulaire/todo-formu
 import { HomeComponent } from './pages/home/home.component';
 import { TodoListeComponent } from './pages/todo-liste/todo-liste.component';
 import { NotFound404Component } from './pages/not-found404/not-found404.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NotFound404Component } from './pages/not-found404/not-found404.componen
     TodoFormulaireComponent,
     HomeComponent,
     TodoListeComponent,
-    NotFound404Component
+    NotFound404Component,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
