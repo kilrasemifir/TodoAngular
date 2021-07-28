@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BasicTodoItem, TodoItem } from 'src/app/models/todo-item';
 import { TodoStoreService } from 'src/app/services/todo-store.service';
 
@@ -13,7 +14,9 @@ export class TodoListeComponent implements OnInit {
   public editItem?: TodoItem = undefined;
   public editItemIndex: number = -1;
 
-  constructor(public todoStore: TodoStoreService) { }
+  constructor(
+    public todoStore: TodoStoreService,
+    private router: Router) { }
 
   onAjouter(todoItem: TodoItem) {
     if (this.editItemIndex == -1)
@@ -26,11 +29,12 @@ export class TodoListeComponent implements OnInit {
   }
 
   onDelete(item: TodoItem) {
+    this.todoStore.remove(item)
+    this.todoListe = this.todoStore.getAll();
   }
 
   onEdit(item: TodoItem, index: number) {
-    this.editItem = item;
-    this.editItemIndex = index;
+    this.router.navigate([`todo-form/${index}`])
   }
 
   ngOnInit(): void {

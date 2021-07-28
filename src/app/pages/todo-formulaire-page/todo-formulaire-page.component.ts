@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TodoItem } from 'src/app/models/todo-item';
 import { TodoStoreService } from 'src/app/services/todo-store.service';
 
@@ -10,14 +10,32 @@ import { TodoStoreService } from 'src/app/services/todo-store.service';
 })
 export class TodoFormulairePageComponent implements OnInit {
 
-  constructor(private todoStore: TodoStoreService, private router: Router) { }
+  editTodo?: TodoItem;
+  editIndex = -1;
+
+  constructor(
+    private todoStore: TodoStoreService, 
+    private router: Router, 
+    private activeRoute: ActivatedRoute) { }
 
   onFinish(item: TodoItem){
-    this.todoStore.add(item);
+    if (this.editTodo){
+      this.todoStore.setItem(this.editIndex, item);
+    }
+    else {
+      this.todoStore.add(item);
+    }
     this.router.navigate(["todo-liste"]);
   }
 
   ngOnInit(): void {
+    this.activeRoute.params.subscribe(params => {
+      let indexString = params.index;
+      if (indexString){
+        this.editIndex = parseInt(indexString);
+        this.editTodo = this.todoStore.getByIndex(this.editIndex);
+      }
+    })
   }
 
 }

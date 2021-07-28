@@ -7,6 +7,7 @@ import { TodoListeComponent } from './pages/todo-liste/todo-liste.component';
 
 const routes: Routes = [
   {path:"todo-liste", component:TodoListeComponent},
+  {path:"todo-form/:index", component:TodoFormulairePageComponent},
   {path:"todo-form", component:TodoFormulairePageComponent},
   {path:"", component:HomeComponent},
   {path:"404", component:NotFound404Component},
