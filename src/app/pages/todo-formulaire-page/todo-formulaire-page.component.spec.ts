@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { TodoFormulairePageComponent } from './todo-formulaire-page.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('TodoFormulairePageComponent', () => {
+  let component: TodoFormulairePageComponent;
+  let fixture: ComponentFixture<TodoFormulairePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ TodoFormulairePageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(TodoFormulairePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

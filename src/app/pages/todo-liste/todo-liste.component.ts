@@ -13,23 +13,22 @@ export class TodoListeComponent implements OnInit {
   public editItem?: TodoItem = undefined;
   public editItemIndex: number = -1;
 
-  constructor(private todoStore: TodoStoreService){}
+  constructor(public todoStore: TodoStoreService) { }
 
-  onAjouter(todoItem: TodoItem){
-    if (this.editItemIndex==-1)
+  onAjouter(todoItem: TodoItem) {
+    if (this.editItemIndex == -1)
       this.todoStore.add(todoItem);
     else {
-      this.todoStore.setItem(this.editItemIndex, this.editItem||new BasicTodoItem());
+      this.todoStore.setItem(this.editItemIndex, this.editItem || new BasicTodoItem());
       this.editItem = undefined;
       this.editItemIndex = -1;
     }
   }
 
-  onDelete(item: TodoItem){
-    this.todoStore.remove(item);
+  onDelete(item: TodoItem) {
   }
 
-  onEdit(item: TodoItem, index:number){
+  onEdit(item: TodoItem, index: number) {
     this.editItem = item;
     this.editItemIndex = index;
   }

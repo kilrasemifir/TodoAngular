@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { TodoListeComponent } from './pages/todo-liste/todo-liste.component';
 import { NotFound404Component } from './pages/not-found404/not-found404.component';
 import { HeaderComponent } from './components/header/header.component';
+import { TodoFormulairePageComponent } from './pages/todo-formulaire-page/todo-formulaire-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HeaderComponent } from './components/header/header.component';
     HomeComponent,
     TodoListeComponent,
     NotFound404Component,
-    HeaderComponent
+    HeaderComponent,
+    TodoFormulairePageComponent
   ],
   imports: [
     BrowserModule,

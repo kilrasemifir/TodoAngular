@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   onClick(){
     console.log("Test du changement de page avec le code");
-    this.router.navigate(["todo-liste"]);
+    this.router.navigate(["todo-form"]);
   }
 
   ngOnInit(): void {
