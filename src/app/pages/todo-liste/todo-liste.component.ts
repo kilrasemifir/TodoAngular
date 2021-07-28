@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BasicTodoItem, TodoItem } from 'src/app/models/todo-item';
+import { TodoStoreService } from 'src/app/services/todo-store.service';
 
 @Component({
   selector: 'app-todo-liste',
@@ -8,29 +9,33 @@ import { BasicTodoItem, TodoItem } from 'src/app/models/todo-item';
 })
 export class TodoListeComponent implements OnInit {
 
-  public todoListe: TodoItem[] = [new BasicTodoItem("Mon premier Todo", "Ceci est un exemple d'un todo. Vous pouvez appuyer sur le bouton rouge pour le supprimer ou sur le bouton vert pour effectuer une edition.")];
+  public todoListe: TodoItem[] = [];
   public editItem?: TodoItem = undefined;
   public editItemIndex: number = -1;
 
+  constructor(private todoStore: TodoStoreService){}
+
   onAjouter(todoItem: TodoItem){
     if (this.editItemIndex==-1)
-      this.todoListe.push(todoItem);
+      this.todoStore.add(todoItem);
     else {
-      this.todoListe[this.editItemIndex] = todoItem;
+      this.todoStore.setItem(this.editItemIndex, this.editItem||new BasicTodoItem());
       this.editItem = undefined;
       this.editItemIndex = -1;
     }
   }
 
   onDelete(item: TodoItem){
-    this.todoListe = this.todoListe.filter(val=>val!=item);
+    this.todoStore.remove(item);
   }
 
   onEdit(item: TodoItem, index:number){
     this.editItem = item;
     this.editItemIndex = index;
   }
+
   ngOnInit(): void {
+    this.todoListe = this.todoStore.getAll();
   }
 
 }
