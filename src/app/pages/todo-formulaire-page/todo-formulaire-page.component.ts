@@ -18,13 +18,15 @@ export class TodoFormulairePageComponent implements OnInit {
     private router: Router, 
     private activeRoute: ActivatedRoute) { }
 
-  onFinish(item: TodoItem){
-    if (this.editTodo)
-      this.todoHttpService.update(item).subscribe(()=>{
+  onFinish(nouveauTodo: TodoItem){
+    if (this.editTodo){
+      nouveauTodo.id = this.editTodo.id
+      this.todoHttpService.update(nouveauTodo).subscribe(()=>{
         this.router.navigate(["todo-liste"]);
       })
+    }
     else
-      this.todoHttpService.save(item).subscribe(()=>{
+      this.todoHttpService.save(nouveauTodo).subscribe(()=>{
         this.router.navigate(["todo-liste"]);
       })
   }
@@ -35,6 +37,7 @@ export class TodoFormulairePageComponent implements OnInit {
       if (indexString){
         this.todoHttpService.findById(indexString).subscribe(item=>{
           this.editTodo = item;
+          console.log(item)
         });
       }
     })

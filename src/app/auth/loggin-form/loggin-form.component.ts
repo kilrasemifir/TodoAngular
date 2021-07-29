@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { LogginService } from 'src/app/services/loggin.service';
 
 @Component({
-  selector: 'auth-loggin-form',
+  selector: 'app-loggin-form',
   templateUrl: './loggin-form.component.html',
   styleUrls: ['./loggin-form.component.css']
 })
-export class LogginFormComponent implements OnInit {
+export class LogginFormComponent {
 
   logginForm: FormGroup;
 
@@ -20,10 +20,7 @@ export class LogginFormComponent implements OnInit {
     this.logginForm = this.formBuilder.group({
       username: new FormControl(""),
       password: new FormControl("")
-    })
-  }
-
-  ngOnInit(): void {
+    });
   }
 
   onSubmit(){

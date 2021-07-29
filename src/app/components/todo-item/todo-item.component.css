@@ -14,7 +14,8 @@
 
 .todo-item-footer {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: flex-end;
     width: 100%;
     font-size: 0.7em;
     color: lightslategray;
@@ -43,4 +44,10 @@ button.close-button {
     display: flex;
     justify-content: row;
     align-items: center;
+}
+
+.tag-cell {
+    padding: 0.5em;
+    margin: 2px;
+    border-radius: 1em;
 }

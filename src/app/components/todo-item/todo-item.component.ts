@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BasicTodoItem, TodoItem } from 'src/app/models/todo-item';
+import { BasicTodoItem, TodoItem, TodoTag } from 'src/app/models/todo-item';
 
 @Component({
   selector: 'app-todo-item',
@@ -30,6 +30,10 @@ export class TodoItemComponent implements OnInit {
   onCloseCallback(){
     this.isOpen = !this.isOpen;
     console.log(this.isOpen)
+  }
+
+  getTagStyle(tag: TodoTag){
+    return {'background-color': tag.color}
   }
 
 }

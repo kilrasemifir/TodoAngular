@@ -18,6 +18,9 @@ import { TodoFormulairePageComponent } from './pages/todo-formulaire-page/todo-f
 import { TodoListComponent } from './layout/todo-list/todo-list.component';
 import { HeaderButtonComponent } from './ui-component/header-button/header-button.component';
 import { AuthModule } from './auth/auth.module';
+import { AComponent } from './components/a/a.component';
+import { BComponent } from './components/b/b.component';
+import { AbComponent } from './pages/ab/ab.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,10 @@ import { AuthModule } from './auth/auth.module';
     HeaderComponent,
     TodoFormulairePageComponent,
     TodoListComponent,
-    HeaderButtonComponent
+    HeaderButtonComponent,
+    AComponent,
+    BComponent,
+    AbComponent
   ],
   imports: [
     BrowserModule,

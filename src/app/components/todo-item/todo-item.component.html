@@ -18,6 +18,8 @@
         <p>{{todoItem.description}}</p>
         <div class="todo-item-footer">
             <p>Date d'échéance: {{todoItem.date | date}}</p>
+            <div *ngFor="let tag of todoItem.tags" [ngStyle]="getTagStyle(tag)" class="tag-cell">{{tag.nom}}</div>
+            
         </div>
     </ng-container>
     
