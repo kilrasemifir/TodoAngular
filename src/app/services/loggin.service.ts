@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { User } from '../models/user';
+import { LogginInformation } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -13,12 +13,12 @@ export class LogginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public findUserByUsernameAndPassword(loggin:User): Observable<User[]>{
+  public findUserByUsernameAndPassword(loggin:LogginInformation): Observable<LogginInformation[]>{
     const url = `${this.BASE_URL}?username=${loggin.username}&password=${loggin.password}`;
-    return this.httpClient.get<User[]>(url);
+    return this.httpClient.get<LogginInformation[]>(url);
   }
 
-  public saveCurrentUser(user:User){
+  public saveCurrentUser(user:LogginInformation){
     localStorage.setItem("currentUser", JSON.stringify(user));
   }
 
