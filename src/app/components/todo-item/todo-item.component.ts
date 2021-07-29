@@ -6,18 +6,14 @@ import { BasicTodoItem, TodoItem, TodoTag } from 'src/app/models/todo-item';
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
 })
-export class TodoItemComponent implements OnInit {
+export class TodoItemComponent {
 
   @Input() todoItem: TodoItem = new BasicTodoItem();
   @Input() isOpen = true;
   @Output() onDelete = new EventEmitter<TodoItem>();
   @Output() onEdit = new EventEmitter();
 
-
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   onDeleteCallback(){
     this.onDelete.emit();
