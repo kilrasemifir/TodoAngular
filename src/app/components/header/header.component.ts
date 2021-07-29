@@ -18,4 +18,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onConnect(){
+    console.log(localStorage.getItem("currentUser"));
+    localStorage.clear();
+    this.router.navigate(["loggin"]);
+  }
+
 }

@@ -1,11 +1,13 @@
+
 <form [formGroup]="logginForm" (ngSubmit)="onSubmit()" class="login-form">
-    <span class="p-float-label">
-        <input id="username-input" formControlName="username" type="text" pInputText>
+    <h2>Authentification</h2>
+    <span>
         <label for="username-input">Username</label>
+        <input id="username-input" formControlName="username" type="text" pInputText>
     </span>
-    <span class="p-float-label">
-        <input id="password-input" formControlName="password" type="text" pInputText>
+    <span >
         <label for="password-input">password</label>
+        <input id="password-input" formControlName="password" type="text" pInputText>
     </span>
     <button pButton  type="submit">Loggin</button>
 </form>

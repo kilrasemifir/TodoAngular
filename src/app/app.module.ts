@@ -17,9 +17,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TodoFormulairePageComponent } from './pages/todo-formulaire-page/todo-formulaire-page.component';
 import { TodoListComponent } from './layout/todo-list/todo-list.component';
 import { HeaderButtonComponent } from './ui-component/header-button/header-button.component';
-import { TodoHTTPService } from './services/todo-http.service';
-import { LogginFormComponent } from './components/loggin-form/loggin-form.component';
-import { LogginPageComponent } from './pages/loggin-page/loggin-page.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -32,9 +30,7 @@ import { LogginPageComponent } from './pages/loggin-page/loggin-page.component';
     HeaderComponent,
     TodoFormulairePageComponent,
     TodoListComponent,
-    HeaderButtonComponent,
-    LogginFormComponent,
-    LogginPageComponent
+    HeaderButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +39,8 @@ import { LogginPageComponent } from './pages/loggin-page/loggin-page.component';
     ReactiveFormsModule,
     HttpClientModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    AuthModule
   ],
   providers: [
     

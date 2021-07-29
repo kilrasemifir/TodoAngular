@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './auth/guards/auth.guard';
 import { NotEmptyTodoListGuard } from './guards/not-empty-todo-list.guard';
 import { HomeComponent } from './pages/home-page/home-page.component';
-import { LogginPageComponent } from './pages/loggin-page/loggin-page.component';
+import { LogginPageComponent } from './auth/loggin-page/loggin-page.component';
 import { NotFound404Component } from './pages/not-found404/not-found404.component';
 import { TodoFormulairePageComponent } from './pages/todo-formulaire-page/todo-formulaire-page.component';
 import { TodoListePageComponent } from './pages/todo-liste-page/todo-liste-page.component';
+import { authRoutes } from './auth/auth.module';
 
 const routes: Routes = [
-  { path: "loggin", component: LogginPageComponent },
+  ...authRoutes,
   { path: "todo-liste", component: TodoListePageComponent, canActivate:[NotEmptyTodoListGuard, AuthGuard] },
   { path: "todo-form/:index", component: TodoFormulairePageComponent, canActivate:[AuthGuard] },
   { path: "todo-form", component: TodoFormulairePageComponent, canActivate:[AuthGuard] },

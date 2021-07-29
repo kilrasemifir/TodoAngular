@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LogginService } from 'src/app/services/loggin.service';
 
 @Component({
-  selector: 'app-loggin-form',
+  selector: 'auth-loggin-form',
   templateUrl: './loggin-form.component.html',
   styleUrls: ['./loggin-form.component.css']
 })
