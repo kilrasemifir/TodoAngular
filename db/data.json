@@ -1,10 +1,9 @@
 {
-  "todos": [
+  "todos": [],
+  "users": [
     {
-      "titre": "AAAAAAAAAAAAAAAAAAAAA",
-      "description": "ekfjhemlgfknmelgkhbezmlgkhùelkgf",
-      "date": 1627486119618,
-      "id": 1
+      "username": "toto",
+      "password": "changeme"
     }
   ]
 }

@@ -1,24 +1,20 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BasicTodoItem, TodoItem } from 'src/app/models/todo-item';
+import { TodoItem } from 'src/app/models/todo-item';
 import { TodoHTTPService } from 'src/app/services/todo-http.service';
-import { TodoStoreService } from 'src/app/services/todo-store.service';
 
 @Component({
-  selector: 'app-todo-liste',
-  templateUrl: './todo-liste.component.html',
-  styleUrls: ['./todo-liste.component.css']
+  selector: 'app-todo-list',
+  templateUrl: './todo-list.component.html',
+  styleUrls: ['./todo-list.component.css']
 })
-export class TodoListeComponent implements OnInit {
+export class TodoListComponent implements OnInit {
 
   public todoListe: TodoItem[] = [];
-  public editItem?: TodoItem = undefined;
-  public editItemIndex: number = -1;
 
   constructor(
-    private todoHttpService: TodoHTTPService,
-    private router: Router
-  ) { }
+    private todoHttpService: TodoHTTPService, private router: Router
+    ) { }
 
   onDelete(item: TodoItem) {
     this.todoHttpService.delete(item).subscribe(()=>{
@@ -33,6 +29,7 @@ export class TodoListeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.todoHttpService.findAll().subscribe(result => {
       this.todoListe = result;
     });

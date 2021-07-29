@@ -29,6 +29,9 @@ input {
     padding-left: 1em;
     width: 20em;
 }
+.p-inputtext {
+    background-color: blue;
+}
 
 textarea {
     border-radius: 1em;

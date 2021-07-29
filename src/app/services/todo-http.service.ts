@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { TodoItem } from '../models/todo-item';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { TodoItem } from '../models/todo-item';
 })
 export class TodoHTTPService {
 
-  private readonly BASE_URL = "http://localhost:3000/todos/"
+  private readonly BASE_URL = `${environment.apiUrl}todos/`
 
   constructor(private httpClient: HttpClient) { }
 

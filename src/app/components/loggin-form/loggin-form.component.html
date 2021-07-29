@@ -1,0 +1,11 @@
+<form [formGroup]="logginForm" (ngSubmit)="onSubmit()">
+    <span class="p-float-label">
+        <input id="username-input" formControlName="username" type="text" pInputText>
+        <label for="username-input">Username</label>
+    </span>
+    <span class="p-float-label">
+        <input id="password-input" formControlName="password" type="text" pInputText>
+        <label for="password-input">password</label>
+    </span>
+    <button pButton  type="submit">Loggin</button>
+</form>

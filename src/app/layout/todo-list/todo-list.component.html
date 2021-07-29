@@ -1,0 +1,11 @@
+<div class="todo-liste-container">
+    <h1>Liste des Todo:</h1>
+    <app-todo-item 
+      *ngFor="let item of todoListe" 
+      [todoItem]="item" 
+      (onDelete)="onDelete(item)"
+      (onEdit)="onEdit(item)"></app-todo-item>
+    <ng-container *ngIf="todoListe.length==0">
+      Vous avez terminé toutes vos taches!
+    </ng-container>
+  </div>

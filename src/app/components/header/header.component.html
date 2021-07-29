@@ -1,12 +1,8 @@
 <div class="header-bar">
     <div class="header-group">
-        <div class="header-item-button">
-            <a routerLink="">Home</a>
-        </div>
-        <div class="header-item-button">
-            <a routerLink="todo-liste">Todo Liste</a>
-        </div>
-        <button (click)="onClick()">New Todo</button>
+        <app-header-button label="Home" urlPath=""></app-header-button>
+        <app-header-button label="Liste" urlPath="todo-liste"></app-header-button>
+        <app-header-button label="Nouveau" urlPath="todo-form"></app-header-button>
     </div>
     <div class="header-item-search">
         Search: <input type="search">
